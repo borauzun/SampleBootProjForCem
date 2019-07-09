@@ -16,5 +16,8 @@ public enum TransactionStatus {
   FAILURE_GENERIC(5),                  // the transaction has failed due to other reasons
   SENT(16),                           // legacy transfers only: the transaction has been sent but has not been acknowledged by the bank
   INITIATED(17);                       // the transaction has been initiated but the result is unknown, this may be the final status and may not get updated later
-  TransactionStatus(int x){}
+  int tStatus;
+	TransactionStatus(int x){tStatus=x;}
+	
+	public int getTransactionStatus() {return tStatus;}
 }

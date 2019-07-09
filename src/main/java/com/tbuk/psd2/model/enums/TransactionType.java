@@ -1,12 +1,8 @@
 package com.tbuk.psd2.model.enums;
 
 public enum TransactionType {
-   FPSTRANSFER("FPS"),
-   SEPATRANSFER("SEPA"),
-   SWIFTTRANSFER("SWIFT"),
-   PAYMENT("PAYMENT"),
-   CHARGES("CHARGES"),
-   ONLINEPAYMENT("ONLINEPAYMENT");
+   DEBIT("DEBIT"),
+   CREDIT("CREDIT");
 	
 	String transactionType;
 	TransactionType(String transactionType){

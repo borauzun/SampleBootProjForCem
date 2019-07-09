@@ -6,54 +6,48 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.tbuk.psd2.model.ais.AccountDetail;
 import com.tbuk.psd2.model.ais.AccountTransaction;
 import com.tbuk.psd2.model.ais.Statement;
 import com.tbuk.psd2.model.common.BankAccount;
 import com.tbuk.psd2.model.common.HttpHeaders;
+import com.tbuk.psd2.model.payment.Charge;
+import com.tbuk.psd2.model.response.BankAuthorization;
 import com.tbuk.psd2.service.AisService;
 import com.tbuk.psd2.service.PaymentService;
 
 import io.swagger.annotations.Api;
 
 @RestController
-@Api(value="/AccountInformation",description="Account Information Service",produces ="application/json")
-@RequestMapping(value="/AccountInformation")
-public class AccountInformationService {
+@Api(value="/accountlinking",description="Account Information Service",produces ="application/json")
+@RequestMapping(value="/accountlinking")
+public class AccountLinkingServ {
  
 	@Autowired
 	AisService service;
-  
-  	
-	@RequestMapping(value="/getAccountsList",method=RequestMethod.GET)
-	public ResponseEntity<List<BankAccount>> getAccounts(@ModelAttribute HttpHeaders headers)  {
-		List<BankAccount> list=service.getAccountsList();
-		return new ResponseEntity<List<BankAccount>>(list,HttpStatus.OK);
-	}
 	
-	@RequestMapping(value="/getAccountDetail/{accountId}",method=RequestMethod.GET)
-	public ResponseEntity<AccountDetail> getAccountDetail(@ModelAttribute HttpHeaders headers,@PathVariable("accountId") String accountId)  {
-		AccountDetail account=service.getAccountDetail();
-		return new ResponseEntity<AccountDetail>(account,HttpStatus.OK);// HttpStatus.OK=200 
-	}
+	@GetMapping("/servletcontroller")
+    public ModelAndView redirectWithUsingForwardPrefix(ModelMap model,@ModelAttribute HttpHeaders headers) {
+		return new ModelAndView("redirect:" + "http://localhost?");
+    }
 	
-	@RequestMapping(value="/getAccountTransactions/{accountId}/{dateFrom}/{dateTo}",method=RequestMethod.GET)
-	public ResponseEntity<List<AccountTransaction>> getAccountTransactions(@ModelAttribute HttpHeaders headers,@PathVariable("accountId") String accountId)  {
-		List<AccountTransaction> list=service.getAccountTransactions();
-		return new ResponseEntity<List<AccountTransaction>>(list,HttpStatus.OK);// HttpStatus.OK=200 
-	}
-	@RequestMapping(value="/getStatement/{accountId}/{month}/{year}",method=RequestMethod.GET)
-	public ResponseEntity<Statement> getStatement(@ModelAttribute HttpHeaders headers,@PathVariable("accountId") String accountId)  {
-		Statement statement=service.getStatement();
-		return new ResponseEntity<Statement>(statement,HttpStatus.OK);// HttpStatus.OK=200 
-	}
+	@GetMapping("/getAuthorisation")
+    public ResponseEntity<BankAuthorization> getAuthorisation(ModelMap model) {
+		
+		return new ResponseEntity<BankAuthorization>(new BankAuthorization(),HttpStatus.OK);
+    }
+	
 	
 	  //Header'i tekrar tekrar her metoda eklememek icin
 		@ModelAttribute

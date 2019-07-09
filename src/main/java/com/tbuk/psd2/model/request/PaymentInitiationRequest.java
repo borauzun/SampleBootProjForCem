@@ -1,4 +1,4 @@
-package com.tbuk.psd2.model.payment;
+package com.tbuk.psd2.model.request;
 
 import java.time.LocalDate;
 
@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import com.tbuk.psd2.model.common.BankAccount;
 import com.tbuk.psd2.model.common.GrpHdr;
 import com.tbuk.psd2.model.enums.PaymentType;
+import com.tbuk.psd2.model.payment.InstructedAmount;
+import com.tbuk.psd2.model.payment.RemittanceInfo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,7 +35,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @JsonRootName("PaymentInitiationRequest")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DomesticPaymentInitiationRequest {
+public class PaymentInitiationRequest {
 	private GrpHdr grpHdr;
 	private BankAccount debtor;
 	private BankAccount creditor;
