@@ -18,10 +18,8 @@ import lombok.Setter;
 public class GrpHdr {
 	
 	private String referenceId;
-	private String psuId_TPP;
-	private String tppId;
-	private LocalDateTime CreDtTm;
-	private PaymentType paymentType;
+	private DateTime CreDtTm;
+
 
 
 }

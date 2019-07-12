@@ -13,6 +13,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class HttpHeaders {
-private String client_Id;
-private String psu_IP;
+    private String Authorization;
+    private String audience;
+    private String client_Id;
+    private String content_Type;
+    private String x_fapi_customer_ip_address;
+    private String nonce;
+
 }

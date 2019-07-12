@@ -33,7 +33,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonRootName("PaymentInitiationRequest")
+//@JsonRootName("PaymentInitiationRequest")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaymentInitiationRequest {
 	private GrpHdr grpHdr;
@@ -41,8 +41,7 @@ public class PaymentInitiationRequest {
 	private BankAccount creditor;
 	private InstructedAmount instructedAmount;
 	private RemittanceInfo remittanceInfo;
-	
-	
+
 	public boolean validate() {
 		// fill here for the validation - burada gelen mesaji validate et, bilgiler girilmis mi
 		 

@@ -2,13 +2,7 @@ package com.tbuk.psd2;
 
 import java.io.IOException;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tbuk.psd2.model.common.BankAccount;
-import com.tbuk.psd2.model.enums.AccountType;
-import com.tbuk.psd2.model.enums.Currency;
-import com.tbuk.psd2.model.payment.Charge;
-import com.tbuk.psd2.util.StatementToBase64Converter;
+import com.tbuk.psd2.util.StatementBase64Utils;
 
 public class temp {
 
@@ -33,7 +27,7 @@ public class temp {
 //		 String dtoAsString = mapper.writeValueAsString(b);
 //	
 //	  System.out.println(dtoAsString);
-		System.out.println(StatementToBase64Converter.convertToBase64("/Users/borauzun/Desktop/pdf s desktop temp/scan13b.pdf"));
+		System.out.println(StatementBase64Utils.convertToBase64("/Users/borauzun/Desktop/statement1.pdf"));
 	}
 	
 	

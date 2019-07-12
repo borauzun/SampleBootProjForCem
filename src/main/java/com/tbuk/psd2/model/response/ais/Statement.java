@@ -1,8 +1,10 @@
-package com.tbuk.psd2.model.ais;
+package com.tbuk.psd2.model.response.ais;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.tbuk.psd2.model.common.Date;
+import com.tbuk.psd2.model.common.DateTime;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +15,7 @@ import lombok.Setter;
 public class Statement {
 	
 	private String fileName;
-	private LocalDate statementDate;
+	private Date statementDate;
 	private String base64StatementFile;
 
 }

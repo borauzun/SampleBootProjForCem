@@ -6,8 +6,8 @@ public enum TransactionStatus {
   SUCCESS(2),                          // the transaction has been successful
   PENDING_EXTERNAL_AUTHORIZATION(15),  // the transaction requires authorization by the user to complete
 //  FAILURE_CANCELED = 10;                // the transaction has been canceled, rolled back
-//  FAILURE_INSUFFICIENT_FUNDS = 3;       // the transaction has failed due to insufficient funds
-//  FAILURE_INVALID_CURRENCY = 4;         // the transaction has failed due to currency mismatch
+  FAILURE_INSUFFICIENT_FUNDS(3),       // the transaction has failed due to insufficient funds
+//  FAILURE_INVALID_CURRENCY(4),         // the transaction has failed due to currency mismatch
 //  FAILURE_PERMISSION_DENIED = 6;        // the transaction has failed due to access violation
 //  FAILURE_QUOTE_EXPIRED = 11;           // the transaction has failed because the quote has expired
 //  FAILURE_INVALID_AMOUNT = 12;          // the transaction has failed due to invalid amount

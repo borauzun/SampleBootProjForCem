@@ -1,36 +1,41 @@
 package com.tbuk.psd2.service;
 
+import com.tbuk.psd2.model.enums.Currency;
+import com.tbuk.psd2.model.enums.TransactionStatus;
+import com.tbuk.psd2.model.payment.PaymentInfo;
+import com.tbuk.psd2.model.request.PaymentInitiationRequest;
 import org.springframework.stereotype.Service;
 
 import com.tbuk.psd2.model.payment.Charge;
-import com.tbuk.psd2.model.response.PaymentResult;
+import com.tbuk.psd2.model.response.payment.PaymentResult;
 
 @Service
 public class PaymentService {
 	
 	// Generic
-	public Charge chargeEnquiry() {
-		return null;
-	}
-	public double rateEnquiry() {
-		return 1.1;
-	}
-	public PaymentResult paymentStatusEnquiry() {
-		return null;
+
+	public PaymentResult paymentStatusEnquiry(String transactionId) {
+		return PaymentResult.builder().transactionId(transactionId).status(TransactionStatus.SUCCESS).build();
 	}
 	// Domestic payments
-	public PaymentResult domesticPayment() {
-		return null;
+	public PaymentResult domesticPayment(PaymentInitiationRequest p) {
+		 return pr(p);
 	}
 	// Transfer between
-	public PaymentResult transferBetweenAccounts() {
-		return null;
+	public PaymentResult transferBetweenAccounts(PaymentInitiationRequest p) {
+		return pr(p);
 	}
 	// International
-	public PaymentResult internationalPayment() {
-		return null;
+	public PaymentResult internationalPayment(PaymentInitiationRequest p) {
+		 return pr(p);
 	}
 	
-	
+	private PaymentResult pr(PaymentInitiationRequest p){
+		return PaymentResult.builder().referenceId(p.getGrpHdr().getReferenceId())
+				.transactionId("00061")
+				.status(TransactionStatus.PROCESSING)
+				.paymentInfo(PaymentInfo.builder().instructedAmount(p.getInstructedAmount().getAmount()).instructedCurrency(p.getInstructedAmount().getCurrency()).build())
+				.build();
+	}
 	
 }

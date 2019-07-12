@@ -1,8 +1,8 @@
 package com.tbuk.psd2.model.enums;
 
 public enum TransactionType {
-   DEBIT("DEBIT"),
-   CREDIT("CREDIT");
+   TRANSFERTOACCOUNT("TOACCOUNT"),
+   TRANSFERTOIBAN("TOIBAN");
 	
 	String transactionType;
 	TransactionType(String transactionType){

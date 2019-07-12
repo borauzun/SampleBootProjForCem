@@ -1,5 +1,6 @@
 package com.tbuk.psd2.model.payment;
 
+import com.tbuk.psd2.model.enums.Currency;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,6 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class Charge {
+    String chargeName;
     double amount;
-    String text;
+    Currency currency;
+    double tax;
 }
